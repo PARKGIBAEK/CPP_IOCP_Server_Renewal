@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\global.ixx",
+        "ProvidedModule": "Global",
+        "ImportedModules": [
+            "DeadlockProfiler",
+            "ThreadManager",
+            "MemoryManager"
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

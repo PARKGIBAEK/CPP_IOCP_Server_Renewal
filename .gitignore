@@ -1,0 +1,13 @@
+*.lib
+*.pdb
+*.obj
+*.tlog
+*.log
+*.ipch
+*.idb
+*.db
+*.pch
+*.recipe
+*.ilk
+*.suo
+*.exe

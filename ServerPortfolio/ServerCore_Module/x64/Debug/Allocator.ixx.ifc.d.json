@@ -1,0 +1,19 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\allocator.ixx",
+        "ProvidedModule": "Allocator",
+        "Includes": [],
+        "ImportedModules": [
+            {
+                "Name": "Types",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Types.ixx.ifc"
+            },
+            {
+                "Name": "Helper",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Helper.ixx.ifc"
+            }
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

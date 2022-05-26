@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\memorymanager.ixx",
+        "ProvidedModule": "MemoryManager",
+        "ImportedModules": [
+            "Allocator",
+            "Types",
+            "MemoryPool"
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{4f388a64-17ee-460e-826b-14b51b5271f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{85eea3cf-3f32-4f8a-8aae-065209229428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Job">
+      <UniqueIdentifier>{b564fe1e-f76e-4a14-a7f7-42817a355304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{85eb0e7a-0dc7-4396-91fe-235f88d529e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{ebef4506-34c4-462d-b92c-5b870cc351b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{80d349b9-f9b1-469a-b88e-f4dcd2647741}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Types.ixx">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="JobTimer.ixx">
+      <Filter>Job</Filter>
+    </ClCompile>
+    <ClCompile Include="Job.ixx">
+      <Filter>Job</Filter>
+    </ClCompile>
+    <ClCompile Include="JobQueue.ixx">
+      <Filter>Job</Filter>
+    </ClCompile>
+    <ClCompile Include="LockQueue.ixx">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Lock.ixx">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="TLS.ixx">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.ixx">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.ixx">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryManager.ixx">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Allocator.ixx">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPool.ixx">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="TLS.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.ixx">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="DeadlockProfiler.ixx">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketUtils.ixx">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetAddress.ixx">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Listener.ixx">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCP_Event.ixx">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCP_Core.ixx">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCP_Core.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Allocator.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadManager.ixx">
+      <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.ixx">
+      <Filter>Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoreMacros.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="WinsockPack.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

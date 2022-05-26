@@ -1,0 +1,31 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\global.ixx",
+        "ProvidedModule": "Global",
+        "Includes": [],
+        "ImportedModules": [
+            {
+                "Name": "DeadlockProfiler",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\Debug\\DeadlockProfiler.ixx.ifc.dt"
+            },
+            {
+                "Name": "ThreadManager",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\Debug\\ThreadManager.ixx.ifc.dt"
+            },
+            {
+                "Name": "MemoryManager",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\Debug\\MemoryManager.ixx.ifc.dt"
+            },
+            {
+                "Name": "TLS",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\Debug\\TLS.ixx.ifc.dt"
+            },
+            {
+                "Name": "MemoryPool",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\Debug\\MemoryPool.ixx.ifc.dt"
+            }
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\deadlockprofiler.ixx",
+        "ProvidedModule": "DeadlockProfiler",
+        "ImportedModules": [
+            "Types",
+            "TLS"
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\iocp_core.ixx",
+        "ProvidedModule": "IOCP_Core",
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

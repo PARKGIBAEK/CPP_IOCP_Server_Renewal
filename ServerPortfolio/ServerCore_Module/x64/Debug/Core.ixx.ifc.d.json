@@ -1,0 +1,79 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\core.ixx",
+        "ProvidedModule": "Core",
+        "Includes": [],
+        "ImportedModules": [
+            {
+                "Name": "Global",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Global.ixx.ifc"
+            },
+            {
+                "Name": "Types",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Types.ixx.ifc"
+            },
+            {
+                "Name": "TLS",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\TLS.ixx.ifc"
+            },
+            {
+                "Name": "Allocator",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Allocator.ixx.ifc"
+            },
+            {
+                "Name": "Container",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Container.ixx.ifc"
+            },
+            {
+                "Name": "MemoryManager",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\MemoryManager.ixx.ifc"
+            },
+            {
+                "Name": "MemoryPool",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\MemoryPool.ixx.ifc"
+            },
+            {
+                "Name": "IOCP_Core",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\IOCP_Core.ixx.ifc"
+            },
+            {
+                "Name": "IOCP_Event",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\IOCP_Event.ixx.ifc"
+            },
+            {
+                "Name": "Listener",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Listener.ixx.ifc"
+            },
+            {
+                "Name": "NetAddress",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\NetAddress.ixx.ifc"
+            },
+            {
+                "Name": "SocketUtils",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\SocketUtils.ixx.ifc"
+            },
+            {
+                "Name": "DeadlockProfiler",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\DeadlockProfiler.ixx.ifc"
+            },
+            {
+                "Name": "Lock",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Lock.ixx.ifc"
+            },
+            {
+                "Name": "ThreadManager",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\ThreadManager.ixx.ifc"
+            },
+            {
+                "Name": "Helper",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\Helper.ixx.ifc"
+            },
+            {
+                "Name": "LockQueue",
+                "BMI": "C:\\Users\\tkdri\\source\\repos\\ServerPortfolio\\ServerCore_Module\\x64\\Debug\\LockQueue.ixx.ifc"
+            }
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

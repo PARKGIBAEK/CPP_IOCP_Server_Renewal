@@ -1,0 +1,11 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\tls.ixx",
+        "ProvidedModule": "TLS",
+        "ImportedModules": [
+            "Types"
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

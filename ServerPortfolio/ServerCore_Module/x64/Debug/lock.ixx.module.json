@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\tkdri\\source\\repos\\serverportfolio\\servercore_module\\lock.ixx",
+        "ProvidedModule": "Lock",
+        "ImportedModules": [
+            "Types",
+            "TLS",
+            "Global"
+        ],
+        "ImportedHeaderUnits": []
+    }
+}

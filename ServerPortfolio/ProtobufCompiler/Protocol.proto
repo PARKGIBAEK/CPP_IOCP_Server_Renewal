@@ -1,0 +1,21 @@
+syntax = "proto3";
+package Protocol;
+
+message BuffData
+{
+	 uint64 buffId = 1;
+	 float remainTime = 2;
+	 repeated uint64 victims = 3;
+}
+
+message TEST_MSG
+{
+	uint64 id=1;
+	uint32 hp=2;
+	uint32 attack=3;
+	repeated BuffData buffs = 4;
+	string msg = 5;
+	//StringValue msg = 5;
+	//google.protobuf.StringValue msg = 5;
+
+}
