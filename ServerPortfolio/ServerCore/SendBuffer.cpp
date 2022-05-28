@@ -18,7 +18,7 @@ void SendBuffer::Close(uint32 _writeSize)
 }
 
 /*======================================
-*			SendBufferChunk
+ 			SendBufferChunk
 ======================================*/
 SendBufferChunk::SendBufferChunk()
 {
@@ -30,7 +30,7 @@ SendBufferChunk::~SendBufferChunk()
 	//...
 }
 
-void SendBufferChunk::Reset()
+void SendBufferChunk::ResetBuffer()
 {
 	isOpened = false;
 	usedSize = 0;
@@ -63,21 +63,23 @@ void SendBufferChunk::Close(uint32 _writeSize)
 /*======================================
 *			SendBufferManager
 ======================================*/
+
 std::shared_ptr<SendBuffer> SendBufferManager::Open(uint32 _size)
 {
 	if (tls_SendBufferChunk == nullptr)
 	{
-		tls_SendBufferChunk = SendBufferManager::Pop(); // WRITE_LOCK 걸려있음
-		tls_SendBufferChunk->Reset();
+		tls_SendBufferChunk = Pop(); // WRITE_LOCK 
+		tls_SendBufferChunk->ResetBuffer();
 	}
 	ASSERT_CRASH(tls_SendBufferChunk->IsOpen() == true,
 		"SendBufferChunk should be close before using");
 
 	if (tls_SendBufferChunk->FreeSize() < _size)
-	{
-		tls_SendBufferChunk = SendBufferManager::Pop();
-		tls_SendBufferChunk->Reset();
+	{// 여유 공간이 요청 사이즈보다 작으면 새로운 SendBufferChunk 꺼내기
+		tls_SendBufferChunk = Pop();
+		tls_SendBufferChunk->ResetBuffer();
 	}
+
 	return tls_SendBufferChunk->Open(_size);
 }
 
@@ -85,11 +87,11 @@ std::shared_ptr<SendBufferChunk> SendBufferManager::Pop()
 {
 	{
 		WRITE_LOCK;
-		if (sendBufferChunks.empty() == false)
+		if (sendBufferChunkPool.empty() == false)
 		{
 			std::shared_ptr<SendBufferChunk> sendBufferChunk
-				= sendBufferChunks.back();
-			sendBufferChunks.pop_back();
+				= sendBufferChunkPool.back();
+			sendBufferChunkPool.pop_back();
 			return sendBufferChunk;
 		}
 	}
@@ -101,7 +103,7 @@ std::shared_ptr<SendBufferChunk> SendBufferManager::Pop()
 void SendBufferManager::Push(std::shared_ptr<SendBufferChunk> _sendBuffer)
 {
 	WRITE_LOCK;
-	sendBufferChunks.emplace_back(_sendBuffer);
+	sendBufferChunkPool.emplace_back(_sendBuffer);
 }
 
 void SendBufferManager::PushGlobal(SendBufferChunk* _sendBuffer)

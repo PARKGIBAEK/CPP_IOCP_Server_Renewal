@@ -29,7 +29,8 @@ public:
 	}
 
 	void							BroadCast(std::shared_ptr<SendBuffer> _sendBuffer);
-
+	
+	[[nodiscard]]
 	std::shared_ptr<Session>		CreateSession();
 	void							AddSession(std::shared_ptr<Session> _session);
 

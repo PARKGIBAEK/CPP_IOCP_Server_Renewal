@@ -10,7 +10,8 @@ public:
 	{
 		Push(ObjectPool<Job>::MakeShared(std::move(_callback)));
 	}
-
+	
+	// RetType(Type::* _memFunc)(Args...)는 Type의 멤버 함수 포인트 시그니처
 	template<typename Type, typename RetType, typename... Args>
 	void DoAsync(RetType(Type::* _memFunc)(Args...), Args... _args)
 	{

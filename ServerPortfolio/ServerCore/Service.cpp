@@ -58,7 +58,9 @@ void Service::AddSession(std::shared_ptr<Session> _session)
 void Service::ReleaseSession(std::shared_ptr<Session> _session)
 {
 	WRITE_LOCK;
+
 	ASSERT_CRASH(sessions.erase(_session) == 0, "_session is not exist in the sessions.");
+	
 	sessionCount--;
 }
 
@@ -137,14 +139,18 @@ bool ServerService::Start()
 	listener = ObjectPool<Listener>::MakeShared();
 	if (listener == nullptr)
 		return false;
+
 	/* shared_ptr을 형변환 */
 	std::shared_ptr<ServerService> serverService = 
 		static_pointer_cast<ServerService>(shared_from_this());
 	
 	if (listener->StartAccept(serverService) == false)
 		return false;
+
+	return true;
 }
 
 void ServerService::CloseService()
 {
+
 }

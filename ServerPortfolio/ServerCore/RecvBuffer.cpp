@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "RecvBuffer.h"
 
-RecvBuffer::RecvBuffer(uint32 _bufferSize) :bufferSize(_bufferSize)
+RecvBuffer::RecvBuffer(int32 _bufferSize) :bufferSize(_bufferSize)
 {
 	capacity = _bufferSize * BUFFER_COUNT;
 	buffer.resize(capacity);
@@ -27,7 +27,7 @@ void RecvBuffer::Clean()
 
 }
 
-bool RecvBuffer::OnRead(uint32 _bytesRead)
+bool RecvBuffer::OnRead(int32 _bytesRead)
 {
 
 	if (_bytesRead > DataSize())// WSABUF에 버퍼의 길이를 입력해주기 때문에 여기 들어오면 문제가 있는 것
@@ -37,7 +37,7 @@ bool RecvBuffer::OnRead(uint32 _bytesRead)
 	return true;
 }
 
-bool RecvBuffer::OnWrite(uint32 _bytesWritten)
+bool RecvBuffer::OnWrite(int32 _bytesWritten)
 {
 
 	if (_bytesWritten > FreeSize()) // WSABUF에 버퍼의 길이를 입력해주기 때문에 여기 들어오면 문제가 있는 것
