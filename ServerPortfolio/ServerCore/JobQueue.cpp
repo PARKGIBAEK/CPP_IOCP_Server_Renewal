@@ -4,14 +4,12 @@
 void JobQueue::Push(std::shared_ptr<Job> _job, bool _pushOnly)
 {
 	const int32 prevCount = jobCount.fetch_add(1);
-	jobs.Push(_job);
+	jobs.Push(_job); // WRITE_LOCK
 	if (prevCount == 0)
 	{
 		if (tls_CurrentJobQueue == nullptr && _pushOnly == false)
-		{
 			Execute();
-		}
-		else
+		else /* GlobalQueue에 전달하여 분산 처리*/
 			G_GlobalQueue->Push(shared_from_this());
 	}
 }
@@ -23,7 +21,7 @@ void JobQueue::Execute()
 	while (true)
 	{
 		Vector<std::shared_ptr<Job>> tempJobs;
-		jobs.PopAll(tempJobs);
+		jobs.PopAll(tempJobs);// WRITE_LOCK
 
 		const int32 tempJobCount = static_cast<int32>(tempJobs.size());
 		for (int32 i = 0; i < tempJobCount; i++)
@@ -37,6 +35,7 @@ void JobQueue::Execute()
 		}
 
 		const uint64 now = ::GetTickCount64();
+		// 시간 초과 시 GlobalQueue에 일감 넘기기
 		if (now >= tls_EndTickCount) 
 		{
 			tls_CurrentJobQueue = nullptr;

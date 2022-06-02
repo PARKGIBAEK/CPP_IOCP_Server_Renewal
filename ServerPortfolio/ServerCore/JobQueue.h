@@ -15,6 +15,8 @@ public:
 	template<typename Type, typename RetType, typename... Args>
 	void DoAsync(RetType(Type::* _memFunc)(Args...), Args... _args)
 	{
+		/* Type은 JobQueue를 상속받은 클래스(Room 등..)여야 하므로
+		   _memFunc는 JobQueue상속 받은 클래스의 멤버 함수*/
 		std::shared_ptr<Type> owner = static_pointer_cast<Type>(shared_from_this());
 		Push(ObjectPool<Job>::MakeShared(owner, _memFunc, std::forward<Args>(_args)...));
 	}
@@ -34,7 +36,9 @@ public:
 	}
 
 	void ClearJob() { jobs.Clear(); }
+	// _pushOnly == true 이면 _job을 push만 한다.
 	void Push(std::shared_ptr<Job> _job, bool _pushOnly = false);
+	// jobs에 있는 Job들을 처리
 	void Execute();
 
 private:

@@ -12,7 +12,7 @@ void JobTimer::Reserve(uint64 _tickAfter, std::weak_ptr<JobQueue> _owner, std::s
 }
 
 void JobTimer::Reserve(TimerItem&& _timerItem)
-{ // Reserve(TimerItem{::GetTickOount64(),ObjectPool<JobData>::Pop(owner,job)});
+{ 
 	WRITE_LOCK;
 	items.push(_timerItem);
 }
@@ -22,24 +22,27 @@ void JobTimer::Distribute(uint64 _now)
 	if (distributing.exchange(true) == true)
 		return;
 
-	Vector<TimerItem> vectorItems;
+	Vector<TimerItem> tempItems;
+
 	{
 		WRITE_LOCK;
-		while (vectorItems.empty() == false)
+		while (items.empty() == false)
 		{
 			const TimerItem& timerItem = items.top();
 			if (_now < timerItem.executeTick)
 				break;
-			vectorItems.push_back(timerItem);
+
+			tempItems.emplace_back(timerItem);
 			items.pop();
 		}
 	}
 
-	for (TimerItem& item : vectorItems)
+	// TimerItem들을 owner JobQueue로 돌려보냄
+	for (TimerItem& item : tempItems)
 	{
-		if (std::shared_ptr<JobQueue> owner = item.jobData->owner.lock())
-			owner->Push(item.jobData->job);
-
+		if (std::shared_ptr<JobQueue> ownerJobQueue = item.jobData->owner.lock())
+			ownerJobQueue->Push(item.jobData->job, true); // owner JobQueue에 Job을 Push
+		// jobData는 raw pointer로 생성하였기 때문에 직접 메모리 풀에 반환해야 함
 		ObjectPool<JobData>::Push(item.jobData);
 	}
 
@@ -49,6 +52,7 @@ void JobTimer::Distribute(uint64 _now)
 void JobTimer::Clear()
 {
 	WRITE_LOCK;
+
 	while(items.empty() == false) 
 	{
 		const TimerItem& timerItem = items.top();

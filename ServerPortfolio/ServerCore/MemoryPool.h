@@ -7,8 +7,10 @@ struct alignas(SLIST_ALIGNMENT) MemoryHeader :public SLIST_ENTRY
 {
 	MemoryHeader(uint32 _size):allocSize(_size)
 	{	}
-	/* 할당된 메모리(_header)의 앞부분을 MemoryHeader로 채운뒤 MemoryHeader가 끝나는 지점을 반환한다
-	 _size는 MemoryHeader의 크기를 포함한다는 사실에 주의
+
+	/* 할당된 메모리(_header)의 앞부분에 MemoryHeader 생성자 호출 후
+		MemoryHeader사이즈 만큼 뒤로 넘긴 메모리 주소를 반환.
+	  ※ _size는 MemoryHeader의 크기를 포함한다는 사실에 주의
 	*/
 	static void* AttachHeader(MemoryHeader* _header, uint32 _size)
 	{
@@ -17,13 +19,13 @@ struct alignas(SLIST_ALIGNMENT) MemoryHeader :public SLIST_ENTRY
 		return reinterpret_cast<void*>(++_header);
 	}
 
+	// 메모리 주소를 MemoryHeader사이즈 만큼 앞당긴 위치 반환
 	static MemoryHeader* DetachHeader(void* _ptr)
 	{
 		MemoryHeader* header = reinterpret_cast<MemoryHeader*>(_ptr) - 1;
 		return header;
 	}
 	uint32 allocSize;
-	uint32 pageCount;
 };
 
 // SLIST를 이용한 Memory Pooling 컨테이너
@@ -33,8 +35,9 @@ public:
 	MemoryPool(int32 _allocSize);
 	~MemoryPool();
 
+	// 다 쓴 메모리 SLIST에 삽입
 	void				Push(MemoryHeader* _ptr);
-	// Memory Pool에서 여분의 메모리를 꺼내줌(여분이 없을 경우 직접 메모리 할당하여 전달)
+	// SLIST에서 여분의 메모리를 꺼내서 반환(여분이 없을 경우 할당하여 반환)
 	MemoryHeader*		Pop();
 
 private:

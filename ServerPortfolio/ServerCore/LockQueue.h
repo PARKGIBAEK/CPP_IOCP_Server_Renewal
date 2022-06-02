@@ -28,6 +28,7 @@ public:
 		WRITE_LOCK;
 		items.push(_item);
 	}
+
 	Type Pop()
 	{
 		WRITE_LOCK;
